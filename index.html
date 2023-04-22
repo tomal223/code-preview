@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Include the PrismJS stylesheet -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css" />
+
+    <!-- Include the PrismJS JavaScript library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-jsx.min.js"></script>
+    <link href="assets/css/style.css" rel="stylesheet">
+
+    <title>Code Preview</title>
+</head>
+
+<body>
+
+
+
+    <!-- Add the code preview box HTML code -->
+    <div class="code-preview-box">
+        <div class="code-preview-header">
+            <span class="code-preview-title">Preview Code</span>
+            <button class="code-preview-copy-btn" onclick="copyCode()">Copy</button>
+        </div>
+        <pre
+            class="code-preview-content"><code class="language-jsx">// Add this import line at the top
+    <span class="token keyword">import</span> { CrossmintPayButton } <span class="token keyword">from</span> '@crossmint/client-sdk-react-ui';
+    
+    <span class="token comment">// Add this component next to your minting button</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>CrossmintPayButton</span>
+      clientId=<span class="token string">"_YOUR_CLIENT_ID_"</span>
+      environment=<span class="token string">"_ENVIRONMENT_"</span>
+      mintConfig=<span class="token punctuation">{</span>
+        type: <span class="token string">'erc-721'</span>,
+        quantity: <span class="token string">'_NUMBER_OF_NFTS_'</span>,
+        totalPrice: <span class="token string">'_PRICE_IN_NATIVE_TOKEN_'</span>,
+        <span class="token comment">// your custom minting arguments...</span>
+      <span class="token punctuation">}</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">/&gt;</span></span></span>;</code></pre>
+    </div>
+
+    <!-- Initialize PrismJS -->
+    <script>Prism.highlightAll();</script>
+
+
+    <style>
+        .code-preview-box {
+            width: 600px;
+            height: 400px;
+            background-color: #1E1E1E;
+            color: #D4D4D4;
+            border-radius: 8px;
+            overflow: hidden;
+            font-size: 14px;
+        }
+
+        .code-preview-header {
+            height: 40px;
+            background-color: #2D2D2D;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            font-size: 18px;
+        }
+
+        .code-preview-title {
+            font-weight: bold;
+        }
+
+        .code-preview-copy-btn {
+            padding: 8px 16px;
+            background-color: #313131;
+            color: #D4D4D4;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .code-preview-content {
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-y: auto;
+        }
+
+        pre.code-preview-content.line-numbers {
+            position: relative;
+            padding-left: 2.8em;
+        }
+
+        pre.code-preview-content.line-numbers code {
+            position: relative;
+        }
+
+        pre.code-preview-content.line-numbers::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 2.6em;
+            padding: 0 0.5em;
+            background-color: #2b2b2b;
+            color: #999;
+            font-size: 14px;
+            font-family: monospace;
+            line-height: 1.6;
+            text-align: right;
+            user-select: none;
+        }
+
+        pre.code-preview-content.line-numbers code::before {
+            content: counter(lineno);
+            counter-increment: lineno;
+            position: absolute;
+            left: -2.5em;
+            text-align: right;
+            width: 2.4em;
+            padding: 0 0.5em;
+            margin-right: 0.5em;
+            color: #999;
+            font-size: 14px;
+            font-family: monospace;
+            line-height: 1.6;
+            user-select: none;
+        }
+    </style>
+    <script>
+        const copyBtn = document.querySelector('.code-preview-copy-btn');
+        const codeContent = document.querySelector('.code-preview-content code');
+
+        copyBtn.addEventListener('click', () => {
+            const textArea = document.createElement('textarea');
+            textArea.value = codeContent.textContent;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            textArea.remove();
+            alert('Code copied to clipboard!');
+        });
+
+    </script>
+
+    <script src="assets/js/jquery.min.js"></script>
+
+
+</body>
+
+</html>
